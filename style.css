@@ -1,0 +1,200 @@
+* {
+   
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #080510;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    
+}
+
+/* NAVBAR */
+#navbar {
+    position: sticky;/*navbar je "prilepeny", kdyz scrolnu dolu*/
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #080510;
+    z-index: 1000;
+    border-bottom: 1px solid #892CDC;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s; /*doba kdy se zmeni bila barva na fialovo*/
+}
+
+.nav-links a:hover {
+    color: #BC6FF1;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    background: radial-gradient( #1b1035 0%, #080510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#countdown {
+    font-size: clamp(2rem, 8vw, 4rem); /* clamp() - definuje velikost pisma v rozmezi minimalni, preferovane a maximalni velikosti */
+    color: #BC6FF1;
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #BC6FF1;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* GRID & CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #151025;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(137, 44, 220, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #BC6FF1;
+}
+
+.card-img {
+    height: 180px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-size: cover;
+}
+
+.badge {
+    background: #892CDC;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+/* CAROUSEL */
+.carousel-section {
+    background: #0c081a;
+    padding: 60px 0;
+    position: relative;
+}
+
+.carousel {
+    max-width: 800px;
+    margin: auto;
+    height: 300px;
+    position: relative;
+   
+}
+
+.slide {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #1a1233;
+    border-radius: 20px;
+    border: 2px solid #BC6FF1;
+}
+
+.next { /*bez toho budu mit pravou sipku u carouselu  na levo*/
+    right: 0; 
+}
+
+.slide.active {
+    display: flex;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 20px;
+}
+
+/* --- */
+.form-wrapper {
+    background: #151025;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input,select {
+    flex: 1;
+    padding: 12px;
+    background: #080510;
+    border: 1px solid #892CDC;
+    color: white;
+    border-radius: 8px;
+}
+
+
+/* RESPONSIVITA */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+}
