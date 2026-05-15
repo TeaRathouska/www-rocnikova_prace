@@ -1,123 +1,119 @@
+/*  RESET A GLOBÁLNÍ STYLY  */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #080510;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #05020a;
     color: white;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 80px 25px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     text-transform: uppercase;
-    
-}
-
-/* BURGIR MEBU*/
-/* Styl pro hamburger ikonu - schovaná na PC */
-.hamburger {
-    display: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 3px;
     color: white;
-    cursor: pointer;
-    z-index: 1001;
+    position: relative;
 }
 
-/* RESPONZIVITA (Mobilní verze) */
-/* KOMPLETNÍ OPRAVA MOBILNÍHO MENU */
-@media (max-width: 768px) {
-    /* Skryjeme původní menu a připravíme ho na vysunutí */
-    .nav-links {
-        display: flex !important; /* bez !importnant se mi neukazou linky kdyz si rozkliknu menu */
-        position: fixed;
-        right: -100%; /* bez toho bych mela menu pres celou obrazovku */
-        top: 0;
-        width: 50%; /* Menu pulku mobilu */
-        height: 100vh;
-        background: #080510;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.4s ease-in-out; /*efekt - menu vyleze z prave strany */
-        z-index: 9999; /* musi byt nad vsemi prvky */
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links li {
-        margin: 25px 0;
-    }
-
-    .nav-links a {
-        font-size: 1.9rem;
-        color: white;
-        display: block;
-    }
-
-    /* Zobrazíme ikonu hamburgeru */
-    .hamburger {
-        display: block !important;
-        position: relative;
-        z-index: 10000; /* jeste vetsi hodnota, aby byla ikonka nad menu a sla zavrit */
-    }
+.section-title::after {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #BC6FF1;
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
 }
 
 /* NAVBAR */
 #navbar {
-    position: sticky;/*navbar je "prilepeny", kdyz scrolnu dolu*/
+    position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background: #080510;
+    padding: 20px 8%;
+    background: rgba(5, 2, 10, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
-    border-bottom: 1px solid #892CDC;
+    border-bottom: 1px solid rgba(137, 44, 220, 0.2);
+    transition: all 0.3s ease;
 }
 
-.logo{
+.logo {
     text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
+    color: #ffffff;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    display: inline-block;
+    position: relative;
+    z-index: 10005;
+}
+
+.logo:hover {
+    color: #BC6FF1;
+    text-shadow: 0 0 5px rgba(188, 111, 241, 0.8);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 35px;
+    align-items: center;
 }
 
 .nav-links a {
-    color: white;
+    color: rgba(226, 224, 231, 0.7);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: 0.3s; /*doba kdy se zmeni bila barva na fialovo*/
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 5px 0;
 }
 
 .nav-links a:hover {
-    color: #BC6FF1;
+    color: #ffffff;
 }
 
-/* Hlavni banner */
+/*  HAMBURGER IKONKA  */
+.hamburger {
+    display: none;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+    transition: 0.3s;
+}
+
+.hamburger:hover {
+    color: #BC6FF1;
+    transform: scale(1.1); /*ikonka menu se zvetsi*/
+}
+
+/* --- HLAVNI BANNER --- */
 .banner {
-    height: 80vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6)), url('https://ceskacestadovesmiru.cz/wp-content/uploads/2026/04/98-Large-1024x682.webp');
-    
+    min-height: 85vh;
+    background-image: linear-gradient(to bottom, rgba(5, 2, 10, 0.4), #05020a),  url('https://muzeumricany.cz/wp-content/uploads/2026/05/muzeum-4_web_w1400px_q77.webp'); /* Ta druha barva v zavorce (#05020a) se mi ztmavý... */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,358 +121,466 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 110px 20px 40px 20px;
+}
+
+.hero-content h1 {
+   font-size: clamp(1.8rem, 4.5vw, 3.2rem); /*clamp(minimum, preferovaná_hodnota, maximum) - text se prizpusubuje podle velikosti obeazovky*/
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(226, 224, 231, 0.8);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
 }
 
 #countdown {
-    font-size: clamp(2rem, 8vw, 4rem); /* clamp() - definuje velikost pisma v rozmezi minimalni, preferovane a maximalni velikosti */
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
     color: #BC6FF1;
-    margin: 20px 0;
+    margin: 25px 0 35px 0;
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 35px;
+    padding: 16px 40px;
     background: #BC6FF1;
     color: white;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*plynula animace; 0.3s - doba prechodu;cubic-bezier(0.4, 0, 0.2, 1): Definuje rychlost */
 }
 
-/* GRID  KARTA */
-.grid {
+.btn:hover {
+    background: #a94fe0;
+    transform: translateY(-3px); /*efekt btn "vyskoci" pri hooveru; (-3) - o kolik pixelu se posune*/
+    box-shadow: 0 5px 10px rgba(188, 111, 241, 0.5);
+}
+
+/* EXPOZICE */
+.prohlidka-expozic h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.expozice-mrizka {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 30px;
 }
 
-.card {
-    background: #151025;
-    border-radius: 15px;
-    padding: 20px;
-    border: 1px solid rgba(137, 44, 220, 0.2);
-    transition: 0.3s;
+.expozice-karta {
+    background: rgba(21, 16, 37, 0.6);
+    border-radius: 16px;
+    overflow: hidden; /*kdyz na to prejedu mysi, tak obrazek nebude vyskakovat z karty*/
+    border: 1px solid rgba(137, 44, 220, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover {
-    border-color: #BC6FF1;
+.expozice-karta:hover {
+    transform: translateY(-8px);
+    border-color: rgba(188, 111, 241, 0.6);
+    box-shadow: 0 12px 30px rgba(137, 44, 220, 0.3);
 }
 
-.card-img {
-    height: 180px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    background-size: cover;
+.expozice-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.badge {
-    background: #892CDC;
-    font-size: 0.7rem;
-    padding: 3px 10px;
-    border-radius: 5px;
+.expozice-obsah {
+    padding: 25px;
 }
 
-/* CAROUSEL */
+.stitek-vesmir {
+    background: rgba(137, 44, 220, 0.2);
+    color: #bca3ff;
+    border: 1px solid rgba(137, 44, 220, 0.5);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.expozice-obsah h3 {
+    color: white;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+.expozice-obsah p {
+    color: rgba(226, 224, 231, 0.75);
+    font-size: 0.95rem;
+}
+
+/* KAROUSEL */
 .carousel-section {
-    background: #0c081a;
-    padding: 60px 0;
-    position: relative;
+    background: #06030d;
+    padding: 100px 0;
 }
 
 .carousel {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
-    height: 300px;
+    height: 400px;
     position: relative;
-   
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .slide {
     display: none;
     height: 100%;
-    align-items: center;
-    justify-content: center;
-    background: #1a1233;
-    border-radius: 20px;
-    border: 2px solid #BC6FF1;
     background-size: cover;
     background-position: center;
-    align-items: flex-end; 
-    justify-content: flex-start; 
-}
-.slide-content {
-    backdrop-filter: blur(5px);/* Efekt rozmazanosti za textem*/
-    padding: 30px;
-    width: 100%;
-    box-sizing: border-box;/* Aby text nebyl vyhozen z carouselu*/
-    border-top: 1px solid #BC6FF1; 
-}
-.slide-content h3 {
-    font-size: 1.2rem;
-    color: #BC6FF1;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-.slide-content p {
-    font-size: 1rem;
-    max-width: 600px;
-}
-
-.next { /*bez toho budu mit pravou sipku u carouselu  na levo*/
-    right: 0; 
+    align-items: flex-end;
 }
 
 .slide.active {
     display: flex;
 }
 
-.carousel button {
-    z-index: 10; /*sipky jsou nad textem*/
-    position: absolute;
-    top: 40%;
-    background: none;
-    border: none;
+.slide-content {
+    background: linear-gradient(to top, rgba(5, 2, 10, 0.95) 40%, rgba(5, 2, 10, 0.4));
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(188, 111, 241, 0.15);
+}
+
+.slide-content h3 {
+    font-size: 1.6rem;
     color: white;
-    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+}
+
+.carousel button {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(21, 16, 37, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.5rem;
     cursor: pointer;
-    padding: 20px;
-}
-
-/*csv expozice*/
-.expozice-mrizka {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-/* Karta */
-.expozice-karta {
-    background: #1a1233; 
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid #BC6FF1; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 0.3s;
 }
 
-.expozice-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.carousel button:hover {
+    background: #BC6FF1;
+    box-shadow: 0 0 10px #BC6FF1;
 }
 
-.expozice-obsah {
-    padding: 20px;
-}
+.prev { left: 20px; } /*bez toho bych mela leve tlacitko nalepeno vlevo*/
+.next { right: 20px; } /*to same jakoe u leveho tlacitka*/
 
-.expozice-obsah h3 {
-    color: #BC6FF1;
-    margin: 10px 0;
-}
-
-.expozice-obsah p {
-    color: white;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.stitek-vesmir {
-    background: #892CDC;
-    color: white;
-    padding: 3px 12px;
-    border-radius: 5px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.expozice-karta {
-    border-radius: 12px;
-    overflow: hidden; /* Aby obrazek nepresahoval */
-}
-
-.expozice-mrizka {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.expozice-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Obrazek se orizne, aby vyplnil prostor */
-}
-
-.expozice-obsah {
-    padding: 20px;
-}
-
-.stitek {
-    background: #007bff;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-/* VSTUPENKY */
+/*  VSTUPENKY */
 .form-wrapper {
-    background: #151025;
-    padding: 40px;
+    background: rgba(21, 16, 37, 0.4);
+    border: 1px solid rgba(137, 44, 220, 0.25);
+    padding: 50px;
     border-radius: 20px;
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
 }
 
 .form-group {
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-input,select {
+input, select {
     flex: 1;
-    padding: 12px;
-    background: #080510;
-    border: 1px solid #892CDC;
+    padding: 14px 18px;
+    background: rgba(5, 2, 10, 0.6);
+    border: 1px solid rgba(137, 44, 220, 0.4);
     color: white;
     border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-/*RECENZE*/
+input[type="email"] { /* plati jen rpo email*/
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-wrapper .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* RECENZE */
+
 .recenze-container {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    display: flex;
-    flex-wrap:wrap;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .recenze-karta {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 30px;
+    width: 320px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
-.recenze-karta h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-.recenze-karta p {
-    color: black; 
-    font-style: italic; /* kurzíva */
-    line-height: 1.5; /* lepsi rozestupy mezi radky */
-}
-
-.recenze-karta h3 {
-    color: black; 
-    margin-top: 10px;
+.recenze-karta:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(188, 111, 241, 0.3);
+    transform: translateY(-5px);
 }
 
 .hvezdy {
-    color: #ffcc00;
-    margin-bottom: 10px;
+    color: #ffc107;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
 }
 
-/*FAQ*/
-.faq-otazka {
-    background-color: #151025;
-    color: #ffffff;
+.recenze-karta p {
+    color: rgba(226, 224, 231, 0.85);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.recenze-karta h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/*  FAQ  */
+.faq-list {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+details {
+    background: rgba(21, 16, 37, 0.4);
+    border: 1px solid rgba(137, 44, 220, 0.2);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    transition: 0.3s;
+}
+
+details[open] { /*[open] - Obsah je skryty, zobrazi se tehdy kdy na nej uzivatel klikne*/
+    border-color: rgba(188, 111, 241, 0.4);
+    background: rgba(21, 16, 37, 0.7);
+}
+
+summary.faq-otazka {
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
     cursor: pointer;
-    padding: 10px;
-    border: none;
     outline: none;
-    font-weight: bold;
-    margin: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq-odpoved {
-    padding: 5px;
-    margin: 5px;
+    margin-top: 15px;
+    color: rgba(226, 224, 231, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
 }
 
-/*FOOTER*/
+/* FOOTER  */
 .footer-vesmir {
-    background: #050308;
-    border-top: 1px solid #892CDC;
-    padding: 50px 0 20px 0;
-    margin-top: 50px;
+    background: #030106;
+    border-top: 1px solid rgba(137, 44, 220, 0.3);
+    padding: 70px 0 20px 0;
+    margin-top: 80px;
 }
 
 .footer-container {
     max-width: 1100px;
     margin: auto;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 20px;
-    gap: 30px;
+    padding: 0 25px;
+    gap: 40px;
 }
 
 .footer-box {
     flex: 1;
-    min-width: 250px; 
+    min-width: 250px;
 }
 
 .footer-box h3 {
-    color: #BC6FF1;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
 }
 
 .footer-box p {
-    margin-bottom: 10px;
+    color: rgba(226, 224, 231, 0.7);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
 }
 
-/* Styl pro soc. site */
 .social-links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .social-icon {
-    color: white;
+    color: rgba(226, 224, 231, 0.7);
     text-decoration: none;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.social-icon:hover {
+.social-icon i {
+    width: 20px;
     color: #BC6FF1;
 }
 
-/* copyrigh */
+.social-icon:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.mapa-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(137, 44, 220, 0.2);
+}
+
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(137, 44, 220, 0.2);
-    margin-top: 40px;
-    padding-top: 20px;
-    color: #666;
-    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 50px;
+    padding-top: 25px;
+    color: rgba(226, 224, 231, 0.4);
+    font-size: 0.85rem;
 }
 
-/* responzivni google mapa */
-.mapa-wrapper {
-    filter: invert(90%) hue-rotate(180deg); /* google mapa temzny rezim */
-    border-radius: 10px;
-    overflow: hidden;
-}
+/*  RESPONSIVITA  */
+@media (max-width: 576px) {
+    .banner{
+        padding-top: 90px; 
+        min-height: 70vh;
+    }
+    .container {
+        padding: 50px 20px;
+    }
 
+    #navbar {
+        padding: 15px 6%;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 
-/* RESPONSIVITA */
-@media (max-width: 768px) {
     .nav-links {
+        display: flex !important;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 280px;
+        height: 100dvh;
+        background: rgba(8, 5, 16, 0.96);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 40px;
+        gap: 25px;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9999;
+        border-left: 1px solid rgba(137, 44, 220, 0.3);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links a::after {
         display: none;
+    }
+
+    .hamburger {
+        display: block !important;
     }
 
     .form-group {
         flex-direction: column;
+        gap: 15px;
+    }
+
+    .carousel {
+        height: 480px;
+    }
+
+    .slide-content {
+        padding: 25px;
     }
 }
-
