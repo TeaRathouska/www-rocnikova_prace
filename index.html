@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muzeum Kosmos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!--ikony-->
+</head>
+<body>
+
+    <nav id="navbar">
+        <div>
+            <a href="#" class="logo"><b>Muzeum Kosmos</b></a>
+        </div>
+    
+    <!-- TLAČÍTKO HAMBURGERU -->
+    <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#expozice">Expozice</a></li>
+        <li><a href="#premium">Prémiové výstavy</a></li>
+        <li><a href="#rezervace">Vstupenky</a></li>
+        <li><a href="#faq">FAQ</a></li>
+    </ul>
+</nav>
+
+    <header class="banner">
+        <div class="hero-content">
+            <h1>VAŠE CESTA KE HVĚZDÁM ZAČÍNÁ ZDE</h1>
+            <p>Zažijte hyper-realistický start do kosmu. Virtuální realita a pohyblivý simulátor vás vystřelí za hranice atmosféry. Startujeme za:</p>
+            <div id="countdown">00d 00h 00m 00s</div>
+            <a href="#rezervace" class="btn">Chci být u toho</a>
+        </div>
+    </header>
+
+<section id="expozice" class="prohlidka-expozic">
+    <div class="container">
+        <h2 style="text-align: center;">EXPOZICE</h2>
+        <div id="seznam-expozic" class="expozice-mrizka">
+            
+        </div>
+    </div>
+</section>
+
+<section id="premium" class="carousel-section">
+    <h2 class="section-title">Prémiové výstavy</h2>
+    <div class="carousel">
+        
+        <!-- SLIDE 1 -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://muzeumricany.cz/wp-content/uploads/2026/05/muzeum-4_web_w1400px_q77.webp');">
+            <div class="slide-content">
+                <h3>Galaxy Space</h3>
+                <p>Vydejte se na cestu skrze digitální vesmíry, kde laserová projekce, interaktivní senzory a prostorový zvuk spojují v jeden pohlcující zážitek.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 2  -->
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://ceskacestadovesmiru.cz/wp-content/uploads/2026/04/98-Large-1024x682.webp');">
+            <div class="slide-content">
+                <h3>Cesta ke hvězdám</h3>
+                <p>Obří 18metrová raketa, ve které zažiješ simulaci letu do vesmíru pomocí virtuální reality a pohyblivých sedadel.</p>
+            </div>
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button> <!-- &#10094; - levy button -->
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+    <section id="rezervace" class="container">
+        <div class="form-wrapper">
+            <h2 class="section-title">Rezervace vstupenek</h2>
+            <form id="ticketForm">
+                <div class="form-group">
+                    <input type="date" name="datum" required>
+                    <input type="time" name="cas" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Počet osob" min="1" required>
+                    <select name="typ">
+                        <option value="dite">Dítě (100 Kč)</option>
+                         <option value="dite">Důchodce (100 Kč)</option>
+                         <option value="student">Student (150 Kč)</option>
+                        <option value="dospely">Dospělý (250 Kč)</option>
+                        <option value="rodina">Rodinné (500 Kč)</option>
+                    </select>
+                </div>
+                <input type="email" placeholder="Váš kontaktní e-mail" required>
+                <button type="submit" class="btn">Rezervovat místa</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="recenze-sekce">
+        <h2 class="section-title">RECENZE</h2>
+        <div id="seznam-recenzi" class="recenze-container">
+        </div>
+    </section>
+
+    <section id="faq" class="container">
+        <h2 class="section-title">Často kladené dotazy</h2>
+        <div class="faq-list">
+            <details>
+                <summary class="faq-otazka">Je nutné si vstupenky rezervovat předem online?</summary> <!-- summary - viditelný titulek/shrnutí pro prvek-->
+                <p class="faq-odpoved">Není to povinné, lístky si můžete koupit i přímo na místě. Nicméně online rezervace vám zaručí vstup ve vybraný čas a vyhnete se případným frontám.</p>
+            </details>
+            <details>
+                <summary class="faq-otazka">Nabízíte slevy pro studenty nebo seniory?</summary>
+                <p class="faq-odpoved">Ano, po předložení platného průkazu (ISIC, žákovský průkaz, občanský průkaz) poskytujeme slevu 30 % pro studenty, seniory nad 65 let a držitele průkazů ZTP.</p>
+            </details>
+            <details>
+                <summary class="faq-otazka">Jak dlouho trvá prohlídka celé expozice?</summary>
+                <p class="faq-odpoved">Průměrná doba prohlídky je přibližně 60 až 90 minut, ale záleží na vašem tempu. Žádný časový limit pro setrvání v expozici nemáme.</p>
+            </details>
+            <details>
+                <summary class="faq-otazka">Je povoleno fotografování?</summary>
+                <p class="faq-odpoved">Ano, fotografování pro osobní účely je povoleno a zdarma. Prosíme však o nepoužívání blesku a stativu, aby nebyli rušeni ostatní návštěvníci a nedošlo k poškození exponátů.</p>
+            </details>
+            <details>
+                <summary class="faq-otazka">Je expozice bezbariérová?</summary>
+                <p class="faq-odpoved">Ano, celá naše budova je vybavena výtahy a nájezdovými rampami, takže je plně přístupná pro vozíčkáře i rodiče s kočárky.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer class="footer-vesmir">
+    <div class="footer-container">
+        <!-- info -->
+        <div class="footer-box">
+            <h3>Muzeum Kosmos</h3>
+            <p>Hvězdná 42, 110 00 Praha</p>
+            <p>Email: kosmos@muzeumkosmos.cz</p>
+            <p>Tel: +420 123 456 789</p>
+        </div>
+
+        <!-- Soc. site-->
+        <div class="footer-box">
+            <h3>Sledujte nás</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/planetariumpraha/?locale=cs_CZ" class="social-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/planetum.cz/?hl=cs" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.youtube.com/@planetum255" class="social-icon"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://www.youtube.com/@planetum255" class="social-icon"><i class="fab fa-x-twitter"></i> Twitter</a>
+            </div>
+        </div>
+
+        <!-- mapa -->
+        <div class="footer-box">
+            <h3>Kde nás najdete</h3>
+            <div class="mapa-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.847524953932!2d14.426214!3d50.081764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b949265f80b91%3A0x7d6f7c9e0d1d2b!2zVsOhY2xhdnNrw6kgbsOhbS4sIFByYWhh!5e0!3m2!1scs!2scz!4v1700000000000!5m2!1scs!2scz" 
+                    width="100%" height="150" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Muzeum Kosmos</p> <!-- &copy; - zavinac -->
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
