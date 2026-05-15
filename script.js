@@ -1,5 +1,4 @@
 //BURGIR MENU
-// HAMBURGER MENU LOGIKA
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
@@ -83,7 +82,7 @@ Mise Sojuz 28;Vžijte se do kůže prvního československého kosmonauta. Usedn
 
 Operátor z Marsu;Ovládněte technologii, která zkoumá rudou planetu. Chopte se joysticku a otestujte svou přesnost při ovládání robotické ruky. Dokážete uchopit marsovský minerál stejně jako skutečná sonda?;Technologie;https://iqlandia.cz/application/files/thumbnails/gallery_thumbnail/1617/1042/5013/Web_foto_88.webp
 
-Historie dalekohledů;Prozkoumejte unikátní sbírku historických dalekohledů a přístrojů, které změnily náš pohled na svět. Prohlédněte si skutečné meteority staré miliardy let a zjistěte, jak se měřil čas i prostor.;Historie;https://www.ntm.cz/file/2b53fc695f1492d115f2e8f9044e9acc/166/pageheader:webp/R44A6892.webp
+Historie Vesmíru;Prozkoumejte unikátní sbírku historických dalekohledů a přístrojů, které změnily náš pohled na svět. Prohlédněte si skutečné meteority staré miliardy let a zjistěte, jak se měřil čas i prostor.;Historie;https://www.ntm.cz/file/2b53fc695f1492d115f2e8f9044e9acc/166/pageheader:webp/R44A6892.webp
 
 Výstava meteoritů;Pohlédněte do tváře skutečným návštěvníkům z hlubin vesmíru. Prozkoumejte unikátní sbírku meteoritů, které dopadly na naši planetu, a zjistěte, co všechno nám tyto vesmírné kameny prozrazují o vzniku života.;Vesmír;https://cdn.myshoptet.com/usr/www.muzeum-meteoritu.cz/user/documents/upload/DSC02326-Enhanced-NR-14944.jpg`;
 
@@ -123,7 +122,7 @@ window.addEventListener("DOMContentLoaded", nactiExpozice);
 const recenzeData = [
     { jmeno: "Petr Svoboda", text: "Úžasný zážitek! Rezervace proběhla hladce a průvodce věděl úplně všechno.", hvezdy: 5 },
     { jmeno: "Jana Novotná", text: "Krásná expozice, jen u vstupu byla menší fronta. Ale stálo to za to!", hvezdy: 4 },
-    { jmeno: "Marek marný", text: "Byli jsme zde s dětmi a moc si to užily. Interaktivní prvky nás bavily celou hodinu.", hvezdy: 5 }
+    { jmeno: "Marek Marný", text: "Byli jsme zde s dětmi a moc si to užily. Interaktivní prvky nás bavily celou hodinu.", hvezdy: 5 }
 ];
 
 function vykresliRecenze() {
